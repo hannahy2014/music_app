@@ -3,6 +3,12 @@ class TracksController < ApplicationController
 
   respond_to :html
 
+  # commentable = Comment.create
+  # comment = commentable.comments.create
+  # comment.title = "First comment."
+  # comment.comment = "This is the first comment."
+  # comment.save
+
   def index
     @tracks = Track.all
     respond_with(@tracks)

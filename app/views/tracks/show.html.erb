@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @track.user %>
+  <strong>Dj:</strong>
+  <%= User.find(@track.user_id).username %>
 </p>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |

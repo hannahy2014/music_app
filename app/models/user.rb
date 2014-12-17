@@ -5,5 +5,10 @@ class User < ActiveRecord::Base
         :rememberable, :trackable, :validatable
 
   has_many :tracks
+
+  def role?(role_to_compare)
+    self.role.to_s == role_to_compare.to_s
+  end
+ 
         
 end

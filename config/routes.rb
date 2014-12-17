@@ -2,5 +2,7 @@ Rails.application.routes.draw do
   resources :tracks
 
   devise_for :users
-  root to: "home#index"
+
+  # map.resources :comments, has_many => :comments
+  root to: "tracks#index"
 end

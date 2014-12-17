@@ -12,4 +12,8 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  commentable = Comment.find(1)
+  comments = commentable.comments.recent.limit(10).all
+
 end
