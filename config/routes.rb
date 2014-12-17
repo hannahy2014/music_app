@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :tracks
+  resources :tracks do
+    resources :comments
+  end
 
   devise_for :users
 

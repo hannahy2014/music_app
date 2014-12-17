@@ -9,6 +9,20 @@
   <strong>Dj:</strong>
   <%= User.find(@track.user_id).username %>
 </p>
+  <hr>
+  <% @track.comments.each do |comment| %>
+  <b><%= comment.title %></b><br>
+  <%= comment.comment %>
+  <br>
+
+  <%= comment.user.try :email %> 
+  <hr>
+  <% end %>
+
+  <%= form_for [@track, @track.comments.new] do |f| %>
+  <%= render partial: 'comments/form', locals: { f: f } %>
+  <%= f.submit 'Add Comment!' %>
+  <% end %>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |
 <%= link_to 'Back', tracks_path %>

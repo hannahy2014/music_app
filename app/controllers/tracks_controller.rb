@@ -3,11 +3,6 @@ class TracksController < ApplicationController
 
   respond_to :html
 
-  # commentable = Comment.create
-  # comment = commentable.comments.create
-  # comment.title = "First comment."
-  # comment.comment = "This is the first comment."
-  # comment.save
 
   def index
     @tracks = Track.all
@@ -27,7 +22,8 @@ class TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(track_params)
+    @track = current_user.tracks.new(track_params)
+    # @track = Track.new(track_params)
     @track.save
     respond_with(@track)
   end

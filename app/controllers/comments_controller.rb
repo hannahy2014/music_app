@@ -1,11 +1,23 @@
 class CommentsController < ApplicationController
-  before_filter :get_comment
+  
+    # before_filter :load_commentable
+    def create
+      @track = Track.find(params[:track_id])
+      @comment = @track.comments.new(comment_params)
+      @comment.user = current_user
+      # respond_to do |format|
+      @comment.save
+      redirect_to @track
+    end
 
-  def get_post
-    @comment = Comment.find(params[:comment_id])
+
+  def comment_params
+    params.require(:comment).permit(:title, :comment)
   end
 
-  def index
-    @comments = @comment.comments.all # or sorted by date, or paginated, etc.
-  end
+
 end
+
+  # commentable = Track.find(1)
+  # comments = commentable.comments.recent.limit(10).all
+
