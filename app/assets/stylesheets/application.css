@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+nav  {
+  display: inline;
+}
+
+.bio {
+  background-color: red;
+}
+/*
+You can pass in the bio size in here*/

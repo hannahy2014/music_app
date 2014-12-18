@@ -1,6 +1,9 @@
-<% if (current_user.role == "dj") %>
+  <h1>Dashboard</h1>
 
-  <h1>Dashboard for DJs</h1>
+  <% if (current_user.role.downcase == "dj") %>
+  <td><%= image_tag current_user.profile_photo.url(:medium) %></td>
+  <% end %>
+
   <h2>Listing tracks for <%= User.find(current_user.id).username %></h2>
 
   <table>
@@ -18,21 +21,16 @@
           <td><%= track.title %></td>
           <td><%= User.find(track.user_id).username %></td>
           <td><%= link_to 'Show', track %></td>
+          <% if (current_user.role.downcase == "dj") %>
           <td><%= link_to 'Edit', edit_track_path(track) %></td>
-          <td><%= link_to 'Destroy', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Delete', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
 
   <br>
-
+  <% if (current_user.role.downcase == "dj") %>
   <%= link_to 'New Track', new_track_path %>
-
-<% else %>
-
-  <h1>Dashboard for Fans</h1>
-  <h1>hello</h1>
-
-
-<% end %>
+  <% end %>

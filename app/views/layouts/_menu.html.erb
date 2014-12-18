@@ -1,13 +1,12 @@
 <nav>
   <ul> 
-  
-
-
-
-    
-    <li>
-      <%= link_to 'logout', destroy_user_session_path, method: :delete %>
-    </li>
-    
+    <% if current_user %>
+      <li><%= link_to 'myTracks', tracks_path %></li>
+      <li><%= link_to current_user.email, my_profile_path(current_user.id) %></li>
+      <li><%= link_to 'logOut', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "register", new_user_registration_path %></li>
+      <li><%= link_to "Login", new_user_session_path %></li>
+    <% end %>
   </ul>
 </nav>

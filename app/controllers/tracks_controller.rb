@@ -5,7 +5,11 @@ class TracksController < ApplicationController
 
 
   def index
-    @tracks = Track.all
+    if current_user.role.downcase == "dj"
+      @tracks = Track.where(user_id: current_user.id)
+    else
+      @tracks = Track.all
+    end
     respond_with(@tracks)
   end
 
@@ -44,6 +48,6 @@ class TracksController < ApplicationController
     end
 
     def track_params
-      params.require(:track).permit(:title, :user_id)
+      params.require(:track).permit(:title, :user_id, :audio)
     end
 end

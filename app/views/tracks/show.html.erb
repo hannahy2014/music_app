@@ -1,3 +1,31 @@
+<script>
+(function() {
+
+function init() {
+  if (soundManager.ok()) {
+    s = soundManager.createSound({
+      id: 'DjTrack',
+      url: '<%= @track.audio.url %>',
+      autoLoad: true,
+      autoPlay: false,
+      volume: 100
+    });
+  }
+}
+
+soundManager.setup({
+  url: '../../swf/',
+  flashVersion: 9,
+  useHighPerformance: true,
+  preferFlash: false,
+  html5PollingInterval: 50,
+  onready: init,
+  ontimeout: init
+});
+
+}());
+</script>
+
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -9,8 +37,63 @@
   <strong>Dj:</strong>
   <%= User.find(@track.user_id).username %>
 </p>
+
+<td><%= image_tag User.find(@track.user_id).profile_photo.url(:medium) %></td>
+
+<p>
+  <div class="clear black-micro dark cutout texture tape">
+   <div class="rail-left"></div>
+   <div class="rail-right"></div>
+   <div class="rail-middle">
+    <div class="rail-middle-outline" style="border:none;background-color:transparent">
+     <div class="hole-1"></div>
+     <div class="hole-2"></div>
+     <div class="hole-3"></div>
+     <div class="hole-4"></div>
+     <div class="tape-pad-holder">
+      <div class="tape-pad"></div>
+      <div class="tape-pad-line"></div>
+     </div>
+    </div>
+    <div class="screw-bm"></div>
+   </div>
+   <div class="screw-tl"></div>
+   <div class="screw-tr"></div>
+   <div class="screw-bl"></div>
+   <div class="screw-br"></div>
+   <div class="screw-tm"></div>
+   <div class="left reel-mask"></div>
+   <div class="right reel-mask"></div>
+   <canvas class="connecting-tape"></canvas>
+   <div class="left reel"></div>
+   <div class="left spokes"></div>
+   <div class="right reel"></div>
+   <div class="right spokes"></div>
+   <div class="progress-notches">
+    <div class="n1"></div>
+    <div class="n2"></div>
+    <div class="n3"></div>
+    <div class="n4"></div>
+    <div class="n5"></div>
+    <div class="n6"></div>
+    <div class="n7"></div>
+    <div class="n8"></div>
+    <div class="n9"></div>
+   </div>
+   <div class="label"><%= User.find(@track.user_id).username %> - <%= @track.title %></div>
+   <div class="controls">
+    <div class="bd">
+     <ul>
+      <li><a href="#" title="play/pause" class="play" onclick="soundManager.sounds['DjTrack'].play();">&#9668;</a></li>
+      <li><a href="#" title="stop" class="stop" onclick="soundManager.sounds['DjTrack'].stop()">&#9632;</a></li>
+     </ul>
+    </div>
+   </div>
+  </div>
+</p>
+
   <hr>
-  <% @track.comments.each do |comment| %>
+  <% @track.comments.all.each do |comment| %>
   <b><%= comment.title %></b><br>
   <%= comment.comment %>
   <br>
@@ -26,3 +109,5 @@
 
 <%= link_to 'Edit', edit_track_path(@track) %> |
 <%= link_to 'Back', tracks_path %>
+
+
