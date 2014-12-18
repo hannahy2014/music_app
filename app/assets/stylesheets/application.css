@@ -10,15 +10,81 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require reset
  *= require_tree .
  *= require_self
  */
-nav  {
-  display: inline;
+
+body {
+  background: #fff7f2;
+  font-family: 'Didact Gothic', sans-serif;
+  line-height: 1.5;
+  color: #a78822;
 }
 
-.bio {
-  background-color: red;
+a {
+  color: #c40d45;
+  font-family: 'Average', Arial, Verdana, 'Helvetica Neue', Helvetica, sans-serif;
+  text-decoration: none;
 }
-/*
-You can pass in the bio size in here*/
+
+a:hover {
+  text-decoration: underline;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  line-height: 80px;
+  background: #fff;
+}
+
+nav, main {
+  max-width: 960px;
+  margin: 0 auto;
+  clear: both;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+nav section.left {
+  float: left;
+}
+
+nav section.left a {
+  font-size: 30px;
+}
+
+nav section.right {
+  float: right;
+}
+
+nav ul li {
+  display: inline;
+  padding: 0 20px;
+}
+
+nav ul li:first-child {
+  padding: 0 20px 0 0;
+}
+
+nav ul li a {
+}
+
+hr {
+  border-top: 1px solid #a78822;
+  height: 0;
+}
+
+.track_detail_styling {
+  padding:  20px;
+}
+
+footer {
+  width: 100%;
+  min-height: 100px;
+  margin: 20px 0 0 0;
+  background: #fff;
+}

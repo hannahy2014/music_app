@@ -1,14 +1,28 @@
 <nav>
-  <ul> 
+   
+    <section class="left">
+    <ul>
+    <li><%= link_to "Mixtape", root_path %></li>
+    </ul>
+    </section>
+
+    <section class="right">
+    <ul>
     <% if current_user %>
       <li><%= link_to 'DJs', users_path %></li>
-      <li><%= link_to 'Tracks', tracks_path %></li>
-      
-      <li><%= link_to current_user.email, my_profile_path(current_user.id) %></li>
-      <li><%= link_to 'logOut', destroy_user_session_path, method: :delete %></li>
+      <% if current_user.role? "DJ" %>
+        <li><%= link_to 'My Tracks', tracks_path %></li>
+        <li><%= link_to 'Add Track', new_track_path %></li>
+      <% else %>
+        <li><%= link_to 'Tracks', tracks_path %></li>
+      <% end %>
+      <li><%= link_to "Profile", my_profile_path(current_user.id) %></li>
+      <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
     <% else %>
-      <li><%= link_to "register", new_user_registration_path %></li>
+      <li><%= link_to "Register", new_user_registration_path %></li>
       <li><%= link_to "Login", new_user_session_path %></li>
     <% end %>
-  </ul>
+    </ul>
+    <section>
+  
 </nav>

@@ -6,18 +6,26 @@
   <%= stylesheet_link_tag    "cassette-tape-ui" %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag "soundmanager2" %>
+  <link href='http://fonts.googleapis.com/css?family=Average|Didact+Gothic' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
+  <header>
+    <nav>
+      <%= render partial: "layouts/menu" %>
+    </nav>  
+  </header>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
-  <nav>
-    <%= render partial: "layouts/menu" %>
-  </nav>  
+  <main>
+    <%= yield %>
+  </main>
 
-<%= yield %>
+  <footer>
+  </footer>
 
 </body>
 </html>

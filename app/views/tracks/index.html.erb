@@ -16,14 +16,16 @@
     </thead>
 
     <tbody>
+
       <% @tracks.each do |track| %>
-        <tr>
-          <td><%= link_to track.title, track %></td>
+        <tr> 
+          <td><%= link_to track.title, track_path(track) %></td>
           <td><%= link_to track.user.username, user_path(track.user) %></td>
           <td><%= link_to 'Show', track %></td>
           <% if (current_user.role.downcase == "dj") %>
           <td><%= link_to 'Edit', edit_track_path(track) %></td>
           <td><%= link_to 'Delete', track, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
           <% end %>
         </tr>
       <% end %>

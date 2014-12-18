@@ -102,9 +102,11 @@ soundManager.setup({
   <hr>
   <% end %>
 
-  <%= form_for [@track, @track.comments.new] do |f| %>
-  <%= render partial: 'comments/form', locals: { f: f } %>
-  <%= f.submit 'Add Comment!' %>
+  <% if current_user.role == "fan" %>
+    <%= form_for [@track, @track.comments.new] do |f| %>
+    <%= render partial: 'comments/form', locals: { f: f } %>
+    <%= f.submit 'Add Comment!' %>
+    <% end %>
   <% end %>
 
 <%= link_to 'Edit', edit_track_path(@track) %> |

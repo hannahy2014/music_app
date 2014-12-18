@@ -1,11 +1,11 @@
 class TracksController < ApplicationController
-  before_action :set_track, only: [:show, :edit, :update, :destroy]
+   before_action :set_track, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
 
   def index
-    if current_user.role.downcase == "dj"
+    if current_user.role? "DJ"
       @tracks = Track.where(user_id: current_user.id)
     else
       @tracks = Track.all
@@ -15,6 +15,7 @@ class TracksController < ApplicationController
 
   def show
     respond_with(@track)
+    @current_user = current_user
   end
 
   def new

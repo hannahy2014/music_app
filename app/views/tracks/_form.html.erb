@@ -11,14 +11,18 @@
     </div>
   <% end %>
 
+
   <div class="field">
     <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title %><br>
   </div>
+  <br>
+  <br>
   <div class="field">
     <%= f.label :audio %><br>
-    <%= f.file_field :audio %>
+    <%= f.file_field :audio %><br>
   </div>
+
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="actions">
     <%= f.submit %>
