@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   # map.resources :comments, has_many => :comments
-  root to: "tracks#index"
-  get '/my_profile/:id', to: 'user#show', as: :my_profile
+  root "users#index"
+  get '/my_profile/:id', to: 'users#show', as: :my_profile
 end

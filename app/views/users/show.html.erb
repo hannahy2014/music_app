@@ -1,0 +1,9 @@
+<%= @user.username %><br>
+<%= @user.bio %><br>
+<%= @user.user_image %>
+
+
+TRACK NAME::::<br>
+<% @user.tracks.each do |track| %>
+<%= link_to track.title, track_path %><br>
+<% end %>
