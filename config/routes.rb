@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   end
 
   devise_for :users, :controllers => { registrations: 'registrations' }
+  resources :users, only: [:index, :show]
 
   # map.resources :comments, has_many => :comments
   root "users#index"

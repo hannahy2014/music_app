@@ -35,10 +35,10 @@ soundManager.setup({
 
 <p>
   <strong>Dj:</strong>
-  <%= User.find(@track.user_id).username %>
+  <%= link_to @track.user.username, user_path(@track.user) %>
 </p>
 
-<td><%= image_tag User.find(@track.user_id).profile_photo.url(:medium) %></td>
+<td><%= image_tag @track.user.profile_photo.url(:medium) %></td>
 
 <p>
   <div class="clear black-micro dark cutout texture tape">

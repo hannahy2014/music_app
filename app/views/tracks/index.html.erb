@@ -18,8 +18,8 @@
     <tbody>
       <% @tracks.each do |track| %>
         <tr>
-          <td><%= track.title %></td>
-          <td><%= User.find(track.user_id).username %></td>
+          <td><%= link_to track.title, track %></td>
+          <td><%= link_to track.user.username, user_path(track.user) %></td>
           <td><%= link_to 'Show', track %></td>
           <% if (current_user.role.downcase == "dj") %>
           <td><%= link_to 'Edit', edit_track_path(track) %></td>
