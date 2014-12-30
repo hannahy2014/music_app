@@ -4,9 +4,9 @@
       <h2><%= pluralize(@track.errors.count, "error") %> prohibited this track from being saved:</h2>
 
       <ul>
-      <% @track.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% @track.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>

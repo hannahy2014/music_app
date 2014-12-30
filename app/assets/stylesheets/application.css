@@ -20,12 +20,14 @@ body {
   font-family: 'Didact Gothic', sans-serif;
   line-height: 1.5;
   color: #a78822;
+  border-radius: 5px 10px 5px 10px;
 }
 
 a {
   color: #c40d45;
   font-family: 'Average', Arial, Verdana, 'Helvetica Neue', Helvetica, sans-serif;
   text-decoration: none;
+  padding:  20px;
 }
 
 a:hover {
@@ -47,6 +49,18 @@ nav, main {
 
 h1 {
   font-size: 22px;
+}
+
+.new_track {
+  margin-bottom: 20px;
+}
+
+.sign_up {
+  margin-bottom: 20px;
+}
+
+.edit_back_margin {
+  margin-bottom: 20px;
 }
 
 nav section.left {
@@ -79,7 +93,7 @@ hr {
 }
 
 .track_detail_styling {
-  padding:  20px;
+  padding:  10px;
 }
 
 footer {

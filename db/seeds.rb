@@ -6,20 +6,28 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 User.delete_all
-# Track.delete_all
-# Comment.delete_all
+
+#*************************************************************
+# Please use the following logins:
+
+# DJs
+# Email address: mixtape@mixtape.io
+# Email address: merlot@merlot.io
+
+# Fans
+# Email address: fan@fan.io
+# Email address: wanna_be_dj@music.io
+
+#All passwords "password"
+#*************************************************************
 
 
-u1 =User.create!(email: 'han@han.io', password: 'password', role: 'DJ', bio: 'some bio stuff', 
-  username: 'DJ Millsy')
-u2 =User.create!(email: 'beth@beth.io', password: 'password', role: 'DJ', bio: 'some bio stuff', username: 'DJ Bef')
-u3 =User.create!(email: 'ray@ray.io', password: 'password', role: 'DJ', bio: 'some bio stuff', 
-  username: 'DJ Ray-Ray')
 
-u4 =User.create!(email: 'jax@jax.io', password: 'password', role: 'fan', bio: 'some bio stuff', username: 'Music_Fan')
-u5 =User.create!(email: 'lee@lee.io', password: 'password', role: 'fan', bio: 'some bio stuff', username: 'I_heart_music')
-u6 =User.create!(email: 'toby@toby.io', password: 'password', role: 'fan', bio: 'some bio stuff', username: 'Wanna_be_DJ')
 
+
+
+# ignore below this line
+#-----------------------------------------------------------------------------------------
 # t1 = Track.create!(title: "Lonely Boy", user_id: u2.id)
 # t2 = Track.create!(title: "Keep in the Dark", user_id: u3.id)
 # t3 = Track.create!(title: "Needin U", user_id: u2.id)

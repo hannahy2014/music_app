@@ -1,9 +1,9 @@
 <b><h2><%= @user.username %></h2></b><br>
-Bio: <%= @user.bio %><br>
+<%= @user.bio %><br>
 <%= @user.user_image %>
 
 <br >
-<h3>Track name</h3>
+<!-- <h3>Track name</h3> -->
 <% @user.tracks.each do |track| %>
 <%= link_to track.title, track_path(track) %><br>
 <% end %>

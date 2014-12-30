@@ -10,5 +10,4 @@ Rails.application.routes.draw do
   root "users#index"
   get '/my_profile/:id', to: 'users#show', as: :my_profile
 
-
 end
